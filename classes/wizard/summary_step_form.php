@@ -59,7 +59,8 @@ class summary_step_form extends step_form {
         } else if ($record->assessmenttype == \workshop_wizard::SELF_AND_PEER_ASSESSMENT) {
             $assessmenttype = get_string('selfandpeerassessment', 'local_workshopaddons');
         }
-        $mform->addElement('static', 'summary_assessmenttype', get_string('assessmenttype', 'local_workshopaddons'), $assessmenttype);
+        $mform->addElement('static', 'summary_assessmenttype', get_string('assessmenttype', 'local_workshopaddons'),
+                $assessmenttype);
 
         // Grading method.
         $strategieslist = \workshop_wizard::available_strategies_list();
@@ -115,8 +116,8 @@ class summary_step_form extends step_form {
             $mform->addElement('static', 'summary_peerallocationdetails', get_string('allocate', 'workshop'), $details);
         }
 
-        // Check if anonimity is already in use in standard workshop ?
-        // Anonymity.
+       // Check if anonimity is already in use in standard workshop ?
+       // Anonymity.
        if (!$this->workshop->is_self_assessment_type()) {
           /*   $anonymitysettings = new \local_workshopaddons\anonymity_settings($this->workshop->context);
             // Display appraisees name.

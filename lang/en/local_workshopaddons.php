@@ -16,13 +16,13 @@
 
 
 /**
- * English strings for unamur
+ * English strings for local_workshopaddons
  *
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
  * @package    local_workshopaddons
- * @copyright  2016 Cellule TICE - UNAmur
+ * @copyright  2016 Cellule TICE - UNamur
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -72,4 +72,4 @@ $string['displayappraisersname'] = 'Display appraisers name';
 $string['displayappraisersname_help'] = 'If activated, the user can see the name of the person who has assessed him. Do not activate if appraiser must stay anonymous.';
 $string['assesswosubmission'] = 'Participants can assess without having submitted anything';
 $string['display_fillinmissingsubmission_link_for_courses'] = 'Course list who need the link to fill in missing submissions';
-$string['display_wizard'] = 'Display wizard'; 
+$string['display_wizard'] = 'Display wizard';

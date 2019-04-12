@@ -49,8 +49,8 @@ class assessmentsettings_step extends step {
     public function save_form(\stdclass $data) {
         global $DB;
         $record = $this->workshop->get_record();
-       // Not displayed . 
-       //  $record->assesswithoutsubmission = (int)!empty($data->assesswithoutsubmission);
+       // Not displayed.
+       //  $record->assesswithoutsubmission = (int)!empty($data->assesswithoutsubmission); ...
        
         // Intructions for reviewers.
         if ($draftitemid = $data->instructreviewerseditor['itemid']) {

@@ -85,7 +85,8 @@ class submissionsettings_step extends step {
             if ($draftitemid = $data->instructauthorseditor['itemid']) {
                 $record->instructauthors = file_save_draft_area_files($draftitemid,
                         $this->workshop->context->id, 'local_workshopaddons', 'instructauthors', 0,
-                        \workshop_wizard::instruction_editors_options($this->workshop->context), $data->instructauthorseditor['text']);
+                        \workshop_wizard::instruction_editors_options($this->workshop->context),
+                        $data->instructauthorseditor['text']);
                 $record->instructauthorsformat = $data->instructauthorseditor['format'];
             }
         }

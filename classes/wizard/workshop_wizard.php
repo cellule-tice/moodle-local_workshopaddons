@@ -20,7 +20,7 @@ defined('MOODLE_INTERNAL') || die();
 
 
 class workshop_wizard extends workshop {
-    
+
     /** @var string PEER_ASSESSMENT Value for peer asssessment */
     const PEER_ASSESSMENT = 1;
 
@@ -32,16 +32,16 @@ class workshop_wizard extends workshop {
 
     /** @var string SKIP_ALLOCATION_ACTION Action that indicate to constructor to skip allocation */
     const SKIP_ALLOCATION_ACTION = "skip_allocation";
-    
+
     /** @var string wizard step */
     public $wizardstep = null;
-    
+
         /** @var array field names from {workshop} table */
     protected $fieldnames;
-    
+
     /** @var int indicate who should assess the workshop */
     public $assessmenttype;
-    
+
         /** @var bool indicate if user will submit work for workshop */
     public $allowsubmission;
 
@@ -56,7 +56,7 @@ class workshop_wizard extends workshop {
 
     /** @var boolean true if submissions already generated */
     public static $submissionsgenerated = false;
-    
+
     public function __construct($workshop, $cm, $course) {
         parent::__construct($workshop, $cm, $course);
         $this->fieldnames = array();
@@ -68,33 +68,29 @@ class workshop_wizard extends workshop {
             }
         }
         $this->course = $course;
-        
+
         $field = 'assessmenttype';
         $this->fieldnames[] = $field;
-        if ($this->usepeerassessment && $this->useselfassessment) {    
-            $this->{$field} = 3;         
+        if ($this->usepeerassessment && $this->useselfassessment) { 
+            $this->{$field} = 3;
         } else if ($this->usepeerassessment) {
-             $this->{$field} = 1; 
+             $this->{$field} = 1;
         } else {
-             $this->{$field} = 2; 
+             $this->{$field} = 2;
         }
-        
+
         $field = 'allowsubmission';
         $this->fieldnames[] = $field;
-        $this->{$field} = 1; 
+        $this->{$field} = 1;
         // @todo
-        
-        
+
         $field = 'assessassoonsubmitted';
         $this->fieldnames[] = $field;
-        $this->{$field} = 0; 
-        // @todo
-        
-        
+        $this->{$field} = 0;
+
         $field = 'assesswithoutsubmission';
         $this->fieldnames[] = $field;
-        // @todo
-        
+
         /*if ($cm instanceof cm_info) {
             $this->cm = $cm;
         } else {
@@ -127,7 +123,7 @@ class workshop_wizard extends workshop {
         }*/
     }
     
-        /**
+     /**
      * Get the wizard page url.
      *
      * @param string|null $step The current step name of the wizard
@@ -142,7 +138,7 @@ class workshop_wizard extends workshop {
         }
         return new moodle_url('/local/workshopaddons/wizard.php', $params);
     }
-    
+
     /**
      * Return an instance of a wizard step class.
      *

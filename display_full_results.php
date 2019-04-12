@@ -84,104 +84,53 @@ if ($groups) {
     $k = 1;
     foreach ($groups as $group) {
         $groupid = $group->id;
-        // Le nom du groupe commence par Groupe ? 
-        // Il s'agit d'une contrainte qui avait été mise pour les cours d'Arnaud Vervoort mais qui pose pb pour Jean-Yves Matroule
-        //if (substr_count($groups[$groupid]->name, 'Groupe')) {
-            $table = new html_table();
-            $groupmembers = groups_get_members($group->id);
-            if (count($groupmembers)) {
-                $workshoplist = array();
-                // Trouver les ateliers du groupe et le nombre de questions par atelier.
-                foreach ($groupmembers as $member) {
-                    // Obtenir la liste des soumissions d'un utilisateur.
-                    $list2 = get_submission_for_user ($member->id);
-                    foreach ($list2 as $info) {
-                        $workshopid = $info->workshopid;
-                        if (!in_array($workshopid, $workshoplist)) {
-                            $workshoplist[] = $workshopid;
-                        }
+        $table = new html_table();
+        $groupmembers = groups_get_members($group->id);
+        if (count($groupmembers)) {
+            $workshoplist = array();
+            // Trouver les ateliers du groupe et le nombre de questions par atelier.
+            foreach ($groupmembers as $member) {
+                // Obtenir la liste des soumissions d'un utilisateur.
+                $list2 = get_submission_for_user ($member->id);
+                foreach ($list2 as $info) {
+                    $workshopid = $info->workshopid;
+                    if (!in_array($workshopid, $workshoplist)) {
+                        $workshoplist[] = $workshopid;
                     }
-                }
-
-                foreach ($groupmembers as $member) {
-                    $row = new html_table_row();
-                    $cell = new html_table_cell();
-                    $cell->text = $groups[$groupid]->name;
-                    $cell->style = "width:30px";
-                    $row->cells[] = $cell;
-
-                    $cell = new html_table_cell();
-                    $cell->text = $member->lastname;
-                    $cell->style = "width:50px";
-                    $row->cells[] = $cell;
-
-                    $cell = new html_table_cell();
-                    $cell->text = $member->firstname;
-                    $cell->style = "width:30px";
-                    $row->cells[] = $cell;
-
-                    $cell = new html_table_cell();
-                    $cell->text = $member->id;
-                    $cell->style = "width:10px";
-                    $row->cells[] = $cell;
-                    $tablecontent[$k][] = $group->name;
-                    $tablecontent[$k][] = $member->lastname;
-                    $tablecontent[$k][] = $member->firstname;
-
-                    foreach ($workshoplist as $workshopid) {
-
-                        // Pour chaque atelier / soumission trouver les resultats des pairs.
-                        $results = get_results_for_user_and_workshop ($member->id, $groupmembers, $workshopid);
-
-                        $notes = array();
-                        $nbval = count($results);
-                        $details = array();
-                        $trouve = false;
-                        foreach ($results as $reviewerid => $elt) {
-                            foreach ($elt as $key => $value) {
-                                if (!array_key_exists($key, $notes)) {
-                                    $notes[$key] = 0;
-                                }
-                                if ($value != '-') {
-                                    $notes[$key] += $value;
-                                    $details[$key][] = sprintf("%01.2f", $value);
-                                } else {
-                                    $notes[$key] = '-';
-                                    $details[$key][] = '';
-                                }
-                                $trouve = true;
-                            }
-                        }
-                        /* if (!$trouve) {
-                             $list2 = get_questionlist_for_workshopid ($workshopid);
-                             for ($i=1; $i<= count($list2); $i++) {
-                                  $notes[$i] = '-';
-                                  $details[$i][] = '';
-                             }
-                         }*/
-                        foreach ($notes as $key => $value) {
-                            $l++;
-                            $detail = '<div id="note'. $l . '" class="display_details"><b>';
-                            if ($value != '-') {
-                                $detail .= sprintf("%0.2f", $value / count($details[$key]));
-                                $tablecontent[$k][]  = sprintf("%01.2f", $value / count($details[$key]));
-                            } else {
-                                $detail .= '-';
-                                $tablecontent[$k][]  = '-';
-                            }
-
-                            $cell = new html_table_cell();
-                            $cell->text = $detail;
-                            $cell->style = "width:20px";
-                            $row->cells[] = $cell;
-                        }
-                    }
-                    $table->data[] = $row;
-                    $k++;
                 }
             }
-            $content .= html_writer::table($table);
-       // }
+
+            foreach ($groupmembers as $member) {
+                $row = new html_table_row();
+                $cell = new html_table_cell();
+                $cell->text = $groups[$groupid]->name;
+                $cell->style = "width:30px";
+                $row->cells[] = $cell;
+
+                $cell = new html_table_cell();
+                $cell->text = $member->lastname;
+                $cell->style = "width:50px";
+                $row->cells[] = $cell;
+
+                $cell = new html_table_cell();
+                $cell->text = $member->firstname;
+                $cell->style = "width:30px";
+                $row->cells[] = $cell;
+
+                $cell = new html_table_cell();
+                $cell->text = $member->id;
+                $cell->style = "width:10px";
+                $row->cells[] = $cell;
+                $tablecontent[$k][] = $group->name;
+                $tablecontent[$k][] = $member->lastname;
+                $tablecontent[$k][] = $member->firstname;
+
+                $list($row, $tablecontent) = display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k);
+                $table->data[] = $row;
+                $k++;
+            }
+        }
+        $content .= html_writer::table($table);
     }
     if ($cmd == 'export') {
         $content .= export_workshop($tablecontent);

@@ -59,7 +59,7 @@ class peerallocation_step_form extends step_form {
         $html = '';
         $output = $PAGE->get_renderer('local_workshopaddons');
         // Other allocations.
-        $allocators = \workshop_wizard::installed_allocators();      
+        $allocators = \workshop_wizard::installed_allocators();
         unset($allocators['manual']);
         $initresults = array();
         if (!empty($allocators)) {

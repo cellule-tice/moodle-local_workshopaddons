@@ -57,7 +57,8 @@ class assessmenttype_step_form extends step_form {
                 \workshop_wizard::PEER_ASSESSMENT, $options);
         $radio[] = $mform->createElement('radio', 'assessmenttype', null, get_string('selfassessment', 'local_workshopaddons'),
                 \workshop_wizard::SELF_ASSESSMENT, $options);
-        $radio[] = $mform->createElement('radio', 'assessmenttype', null, get_string('selfandpeerassessment', 'local_workshopaddons'),
+        $radio[] = $mform->createElement('radio', 'assessmenttype', null,
+                get_string('selfandpeerassessment', 'local_workshopaddons'),
                 \workshop_wizard::SELF_AND_PEER_ASSESSMENT, $options);
         $mform->addGroup($radio, 'assessmenttype', get_string('assessmenttype', 'local_workshopaddons'), array('<br />'), false);
         $mform->addHelpButton('assessmenttype', 'assessmenttype', 'local_workshopaddons');

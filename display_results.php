@@ -132,7 +132,7 @@ if ($groupid) {
         $row->cells[] = $member->id;
 
         foreach ($workshoplist as $workshopid) {
-            // Foreeach workshop get results for a specific member of this group.
+            // Foreach workshop get results for a specific member of this group.
             $results = get_results_for_user_and_workshop ($member->id, $groupmembers, $workshopid);
 
             $notes = array();

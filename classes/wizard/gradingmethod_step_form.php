@@ -65,7 +65,7 @@ class gradingmethod_step_form extends step_form {
         } else {
             $textbutton = get_string('manageactionedit', 'core_grading');
             $imgsrc = 'b/document-edit';
-        } 
+        }
 
         $html = \html_writer::start_div('strategybuttoncontainer');
         $img = \html_writer::empty_tag('img', array('src' => $OUTPUT->image_url($imgsrc), 'class' => 'action-icon'));

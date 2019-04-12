@@ -53,7 +53,7 @@ class submissionsettings_step_form extends step_form {
         if (\workshop_wizard::is_allowsubmission_disabled($this->workshop)) {
             $options = array('disabled' => 'true');
         }
-      /* $label = get_string('allowsubmission', 'local_workshopaddons');
+        /* $label = get_string('allowsubmission', 'local_workshopaddons');
         $mform->addElement('checkbox', 'allowsubmission', $label, ' ', $options);
         $mform->addHelpButton('allowsubmission', 'allowsubmission', 'local_workshopaddons');*/
 
@@ -75,7 +75,6 @@ class submissionsettings_step_form extends step_form {
         $mform->addElement('checkbox', 'phaseswitchassessment', $label);
         $mform->addHelpButton('phaseswitchassessment', 'submissionendswitch', 'mod_workshop');
         $mform->addElement('html', \html_writer::end_div());
-
 
         $fieldselectors = array("input[name='allowsubmission']", "input[name='submissionend[enabled]']");
         $fieldselectors = implode(',' , $fieldselectors);

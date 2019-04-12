@@ -131,10 +131,10 @@ function get_results_for_user_and_workshop ($userid, $groupmembers, $workshopid)
             } else {
                 foreach ($list3 as $elt) {
                     $list[$assessment->reviewerid][] = $elt->grade;
-                }  
+                }
             }
         }
-        if (array_key_exists($workshopid,$missing)) {
+        if (array_key_exists($workshopid, $missing)) {
             if ($missing[$workshopid] == $nbmembers) {
                 for ($l = 1; $l <= count($list2); $l++) {
                     foreach ($groupmembers as $member) {
@@ -143,7 +143,7 @@ function get_results_for_user_and_workshop ($userid, $groupmembers, $workshopid)
                 }
             }
             $workshop = get_workshopname($workshopid);
-        }        
+        }
     }
     return $list;
 }
@@ -156,7 +156,7 @@ function get_results_for_user_and_workshop ($userid, $groupmembers, $workshopid)
  */
 function get_workshopname($workshopid) {
     global $DB;
-    $list = $DB->get_record_select('workshop', "id='$workshopid'");  
+    $list = $DB->get_record_select('workshop', "id='$workshopid'");
     return $list;
 }
 
@@ -260,7 +260,7 @@ function export_workshop($tablecontent) {
 
 /*
  * Get instance of module into course_modules table corresponding to a workshop into a course
- * @param int $workshopid 
+ * @param int $workshopid
  * @global $DB
  * @global $course
  * @return integer
@@ -268,7 +268,8 @@ function export_workshop($tablecontent) {
 function get_related_entryid_for_workshop($workshopid) {
     global $DB, $course;
     $module = get_workshop_id ();
-    $courseinfo = $DB->get_record_select('course_modules', "course='$course->id' and module='$module' and instance = '$workshopid'");
+    $courseinfo = $DB->get_record_select('course_modules', "course='$course->id' and module='$module'"
+            . " and instance = '$workshopid'");
     if (count($courseinfo)) {
         return $courseinfo->id;
     }
@@ -318,27 +319,27 @@ function download_submissions($workshop) {
             // Get the plugins to add their own files to the zip.
 
             $groupname = '';
-            $submission = current($workshop->get_submissions($userid, $groupid));  //Only one submission from user
+            $submission = current($workshop->get_submissions($userid, $groupid));  // Only one submission from user.
 
             $prefix = str_replace('_', ' ', $groupname . fullname($student));
 
             if ($submission) {
-                if ($files  = $fs->get_area_files($workshop->context->id, 'mod_workshop', 'submission_attachment', $submission->id)) {
-                  // La soumission est un fichier.
-                  foreach($files as $file){
-                      if ($file->get_mimetype() && $file->get_filename() != ".") {
-                          $prefixedfilename = clean_filename($student->lastname. '_' . $student->firstname .
+                if ($files  = $fs->get_area_files($workshop->context->id, 'mod_workshop', 'submission_attachment',
+                        $submission->id)) {
+                    // La soumission est un fichier.
+                    foreach ($files as $file){
+                        if ($file->get_mimetype() && $file->get_filename() != ".") {
+                            $prefixedfilename = clean_filename($student->lastname. '_' . $student->firstname .
                                   '_' .$file->get_filename());
-
-                          $filesforzipping[$prefixedfilename] = $file;
+                            $filesforzipping[$prefixedfilename] = $file;
                         }
-                    } 
+                    }
                 } else {
                     // La soumission est sous forme de texte.
                     $temp = $workshop->get_submission_by_id($submission->id);
                     $content = $temp->content;
                     // Create file with this content.
-                   // echo '<br> content = '. $content;
+                   // @todo.
                 }
             }
         }
@@ -346,10 +347,9 @@ function download_submissions($workshop) {
 
     $result = '';
     if (count($filesforzipping) == 0) {
-       // $result = get_string('nosubmissions', 'workshop');
         $result = '';
     } else {
-         $tempzip = tempnam($CFG->tempdir . '/', 'assignment_');
+        $tempzip = tempnam($CFG->tempdir . '/', 'assignment_');
         // Zip files.
         $zipper = new zip_packer();
         if ($zipper->archive_to_pathname($filesforzipping, $tempzip)) {
@@ -362,7 +362,7 @@ function download_submissions($workshop) {
 
 /*
  * This function gives the id of the workshop module
- * @param string $moodulename 
+ * @param string $moodulename
  * @return int  id of the module if exists, false otherwise
  */
 function get_workshop_id() {
@@ -374,4 +374,55 @@ function get_workshop_id() {
         }
     }
     return false;
+}
+
+function display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k) {
+    foreach ($workshoplist as $workshopid) {
+        // Foreach workshop get results for a specific member of this group.
+         $results = get_results_for_user_and_workshop ($member->id, $groupmembers, $workshopid);
+
+         $notes = array();
+         $nbval = count($results);
+         $details = array();
+         $trouve = false;
+         foreach ($results as $reviewerid => $elt) {
+             foreach ($elt as $key => $value) {
+                 if (!array_key_exists($key, $notes)) {
+                     $notes[$key] = 0;
+                 }
+                 if ($value != '-') {
+                     $notes[$key] += $value;
+                     $details[$key][] = sprintf("%01.2f", $value);
+                 } else {
+                     $notes[$key] = '-';
+                     $details[$key][] = '';
+                 }
+                 $trouve = true;
+             }
+         }
+        /* if (!$trouve) {
+             $list2 = get_questionlist_for_workshopid ($workshopid);
+             for ($i=1; $i<= count($list2); $i++) {
+                  $notes[$i] = '-';
+                  $details[$i][] = '';
+             }
+         }*/
+        foreach ($notes as $key => $value) {
+            $l++;
+            $detail = '<div id="note'. $l . '" class="display_details"><b>';
+            if ($value != '-') {
+                $detail .= sprintf("%0.2f", $value / count($details[$key]));
+                $tablecontent[$k][]  = sprintf("%01.2f", $value / count($details[$key]));
+            } else {
+                $detail .= '-';
+                $tablecontent[$k][]  = '-';
+            }
+
+            $cell = new html_table_cell();
+            $cell->text = $detail;
+            $cell->style = "width:20px";
+            $row->cells[] = $cell;
+        }
+    }
+    return array($row, $tablecontent);
 }

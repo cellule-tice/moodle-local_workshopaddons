@@ -35,7 +35,7 @@ function local_workshopaddons_extend_navigation_course(navigation_node $parentno
         // In the report tab linked to course navigation, a node is added and entitled workshop.
         $reportnode = $parentnode->find('coursereports', null);
         $workshopnode = $reportnode->add(get_string('pluginname', 'mod_workshop'));
-              
+
         // In this node, a link is added to display results linked to all workshops by groups.
         $workshopnode->add(get_string('display_results', 'local_workshopaddons'), new moodle_url(
                     '/local/workshopaddons/display_results.php', $params), navigation_node::TYPE_SETTING, null,
@@ -59,23 +59,23 @@ function local_workshopaddons_extend_settings_navigation($settingsnav, $context)
     }
     if ($settingnode = $settingsnav->find('modulesettings', navigation_node::TYPE_SETTING)) {
         if ($PAGE->cm->modname == 'workshop') {
-            
             $displaywizard = $url = get_config('local_workshopaddons', 'displaywizard');
             if ($displaywizard) {
-                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));                
+                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));          
                 $settingnode->add(get_string('wizard', 'local_workshopaddons'), $url, settings_navigation::TYPE_SETTING);
             }
-          
+
             $list = explode(',', get_config('local_workshopaddons', 'courselistwithfillinsubmissionslink'));
-            foreach ($list as $key=>$value) {
+            foreach ($list as $key => $value) {
                 $list[$key] = trim($value);
             }
             $displaylink = in_array($COURSE->shortname, $list);
-            
+
             if ($displaylink) {
                 // A link is added to fill in all missing submissions.                
                 $url = new moodle_url('/local/workshopaddons/index.php', array('cmid' => $PAGE->cm->id));
-                $settingnode->add(get_string('fillinallmissingsubmissions', 'local_workshopaddons'), $url, settings_navigation::TYPE_SETTING);
+                $settingnode->add(get_string('fillinallmissingsubmissions', 'local_workshopaddons'), $url,
+                        settings_navigation::TYPE_SETTING);
                 // A link is added for automatic allocation.
                 // ATTRIBUTION AUTOMATIQUE
                 $url = new moodle_url('/mod/workshop/allocation.php', array('cmid' => $PAGE->cm->id, 'method' => 'random'));
