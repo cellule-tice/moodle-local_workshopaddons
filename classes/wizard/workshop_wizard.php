@@ -93,12 +93,12 @@ class workshop_wizard extends workshop {
 
     }
 
-      /**
-      * Get the wizard page url.
-      *
-      * @param string|null $step The current step name of the wizard
-      * @return moodle_url to the wizard page
-      */
+    /**
+    * Get the wizard page url.
+    *
+    * @param string|null $step The current step name of the wizard
+    * @return moodle_url to the wizard page
+    */
     public function wizard_url($step = null) {
         $params = array('id' => $this->cm->id);
         if (!empty($step)) {
@@ -123,7 +123,7 @@ class workshop_wizard extends workshop {
         $wizardstep = new $classname($this);
         return $wizardstep;
     }
-    
+
     /**
      * Get a validated wizard class name.
      *
@@ -143,7 +143,7 @@ class workshop_wizard extends workshop {
         return $name;
     }
 
-    
+
     /**
      * Check if assessmenttype parameter can be modified or not for the workshop
      *
@@ -157,7 +157,6 @@ class workshop_wizard extends workshop {
         $submissionsql = "SELECT COUNT(s.id)
                             FROM {workshop_submissions} s
                            WHERE s.example = 0 AND s.workshopid = :workshopid";
-                           //  AND s.realsubmission = 1";
         $assessmentsql = "SELECT COUNT(a.id)
                             FROM {workshop_assessments} a
                             JOIN {workshop_submissions} s ON (a.submissionid = s.id)
@@ -169,12 +168,12 @@ class workshop_wizard extends workshop {
 
         return false;
     }
-    
-      /**
-     * Get the record format of the workshop database based on the field.
-     *
-     * @return stdClass Workshop instance data from {workshop} table
-     */
+
+    /**
+    * Get the record format of the workshop database based on the field.
+    *
+    * @return stdClass Workshop instance data from {workshop} table
+    */
     public function get_record() {
         $record = new stdClass(); 
         foreach ($this->fieldnames as $field) {
@@ -183,7 +182,7 @@ class workshop_wizard extends workshop {
                 $record->{$field} = $value;
             }
         }
-        // Get back the course id instead of the course object;
+        // Get back the course id instead of the course object.
         $record->course = $this->course->id;
         return $record;
     }
@@ -196,8 +195,8 @@ class workshop_wizard extends workshop {
     public function is_self_assessment_type() {
         return $this->assessmenttype == self::SELF_ASSESSMENT;
     }
-    
-        /**
+
+    /**
      * Check if allowsubmission parameter can be modified or not for the workshop
      *
      * @param stdClass $workshop workshop info.
@@ -218,7 +217,7 @@ class workshop_wizard extends workshop {
 
         return false;
     }
-    
+
     /**
      * Generate fakes submissions for users.
      */
@@ -254,7 +253,7 @@ class workshop_wizard extends workshop {
                 if (property_exists($submission, 'realsubmission')) {
                     if ($submission->realsubmission == 0) {
                         $DB->delete_records("workshop_submissions", array('id' => $submission->id));
-                    } 
+                    }
                 }
             }
         }

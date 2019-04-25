@@ -60,7 +60,7 @@ function local_workshopaddons_extend_settings_navigation($settingsnav) {
         if ($PAGE->cm->modname == 'workshop') {
             $displaywizard = $url = get_config('local_workshopaddons', 'displaywizard');
             if ($displaywizard) {
-                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));    
+                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));
                 $settingnode->add(get_string('wizard', 'local_workshopaddons'), $url, settings_navigation::TYPE_SETTING);
             }
 

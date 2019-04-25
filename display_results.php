@@ -111,13 +111,6 @@ if ($groupid) {
     }
     asort($workshoplist);
 
-    /*foreach ($workshoplist as $workshopid) {        
-        $workshopname = get_workshopname($workshopid);
-        $list2 = get_questionlist_for_workshopid ($workshopid);
-        for ($l = 1; $l <= count($list2); $l++) {
-            $head[] = $workshopname . '<br /> Q '. $l;
-        }
-    } */
     $table->head = $head;
     foreach ($groupmembers as $member) {
 

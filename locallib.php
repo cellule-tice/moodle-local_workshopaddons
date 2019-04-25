@@ -336,7 +336,7 @@ function download_submissions($workshop) {
                     $temp = $workshop->get_submission_by_id($submission->id);
                     $content = $temp->content;
                     // Create file with this content.
-                   // @todo.
+                   // TODO.
                 }
             }
         }
