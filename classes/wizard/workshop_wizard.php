@@ -71,7 +71,7 @@ class workshop_wizard extends workshop {
 
         $field = 'assessmenttype';
         $this->fieldnames[] = $field;
-        if ($this->usepeerassessment && $this->useselfassessment) { 
+        if ($this->usepeerassessment && $this->useselfassessment) {
             $this->{$field} = 3;
         } else if ($this->usepeerassessment) {
              $this->{$field} = 1;
@@ -82,7 +82,7 @@ class workshop_wizard extends workshop {
         $field = 'allowsubmission';
         $this->fieldnames[] = $field;
         $this->{$field} = 1;
-        // @todo
+        // TODO.
 
         $field = 'assessassoonsubmitted';
         $this->fieldnames[] = $field;
@@ -92,13 +92,13 @@ class workshop_wizard extends workshop {
         $this->fieldnames[] = $field;
 
     }
-    
-     /**
-     * Get the wizard page url.
-     *
-     * @param string|null $step The current step name of the wizard
-     * @return moodle_url to the wizard page
-     */
+
+      /**
+      * Get the wizard page url.
+      *
+      * @param string|null $step The current step name of the wizard
+      * @return moodle_url to the wizard page
+      */
     public function wizard_url($step = null) {
         $params = array('id' => $this->cm->id);
         if (!empty($step)) {
@@ -229,11 +229,11 @@ class workshop_wizard extends workshop {
         $authors = array_map(function($o) {
             return $o->authorid;
         }, $submissions);
-        $misseduserssubmissions = array_diff(array_keys($users), array_values($authors));
+        $misseduserssub = array_diff(array_keys($users), array_values($authors));
         $missedusers = array_diff(array_values($authors), array_keys($users));
 
         if (!empty($misseduserssubmissions)) {
-            foreach ($misseduserssubmissions as $user) {
+            foreach ($misseduserssub as $user) {
                     $record = new \stdClass();
                     $record->workshopid     = $this->id;
                     $record->example        = 0;

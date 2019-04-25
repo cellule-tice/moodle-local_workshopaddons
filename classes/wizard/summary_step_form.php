@@ -111,14 +111,14 @@ class summary_step_form extends step_form {
 
        // Check if anonimity is already in use in standard workshop ?
        if (!$this->workshop->is_self_assessment_type()) {
-            // Assess without submission.
-            if (property_exists('workshop', 'allowsubmission')) {
-                if ($record->allowsubmission) {
-                    $yesno = $record->assesswithoutsubmission ? get_string('yes') : get_string('no');
-                    $mform->addElement('static',
-                        'summary_assesswithoutsubmission', get_string('assesswithoutsubmission', 'workshop'), $yesno);
-                }
-            }
+           // Assess without submission.
+           if (property_exists('workshop', 'allowsubmission')) {
+               if ($record->allowsubmission) {
+                   $yesno = $record->assesswithoutsubmission ? get_string('yes') : get_string('no');
+                   $mform->addElement('static',
+                       'summary_assesswithoutsubmission', get_string('assesswithoutsubmission', 'workshop'), $yesno);
+               }
+           }
         }
 
         // Assessment start.

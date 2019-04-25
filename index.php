@@ -68,7 +68,7 @@ if ($cmd == 'downloadall') {
     // Foreach participant, if he has not yet submit, submit a simulated work with the name of the workshop?
     foreach ($participants as $userid => $elt) {
         if (!array_key_exists($userid, $alreadysubmittedparticipants)) {
-            $content .= '<br> on insère pour ' . $elt->lastname . ' ' . $elt->firstname . '  le travail de titre '. $workshop->name;
+            $content .= '<br> Insertion of ' . $elt->lastname . ' ' . $elt->firstname . '  le travail de titre '. $workshop->name;
             $data = new stdClass();
             $data->workshopid = $workshop->id;
             $data->title = $workshop->name;
