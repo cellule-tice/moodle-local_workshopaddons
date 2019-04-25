@@ -39,7 +39,7 @@
     transform: translateY(1px);
 }
 
-path-local-workshopaddons .wizard-navigation ol:before {
+.path-local-workshopaddons .wizard-navigation ol:before {
     left: 0;
 }
 .path-local-workshopaddons .wizard-navigation ol:after {
@@ -103,6 +103,7 @@ path-local-workshopaddons .wizard-navigation ol:before {
 .path-local-workshopaddons .wizard-navigation li .container .legend {
     display: block;
 }
+
 @media screen and (min-width: 900px) {
     .path-local-workshopaddons .userplan dd.active {
         display: flex;

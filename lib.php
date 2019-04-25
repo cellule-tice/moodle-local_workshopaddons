@@ -61,7 +61,7 @@ function local_workshopaddons_extend_settings_navigation($settingsnav, $context)
         if ($PAGE->cm->modname == 'workshop') {
             $displaywizard = $url = get_config('local_workshopaddons', 'displaywizard');
             if ($displaywizard) {
-                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));          
+                $url = new moodle_url('/local/workshopaddons/wizard.php', array('id' => $PAGE->cm->id));    
                 $settingnode->add(get_string('wizard', 'local_workshopaddons'), $url, settings_navigation::TYPE_SETTING);
             }
 
@@ -72,12 +72,11 @@ function local_workshopaddons_extend_settings_navigation($settingsnav, $context)
             $displaylink = in_array($COURSE->shortname, $list);
 
             if ($displaylink) {
-                // A link is added to fill in all missing submissions.                
+                // A link is added to fill in all missing submissions.
                 $url = new moodle_url('/local/workshopaddons/index.php', array('cmid' => $PAGE->cm->id));
                 $settingnode->add(get_string('fillinallmissingsubmissions', 'local_workshopaddons'), $url,
                         settings_navigation::TYPE_SETTING);
                 // A link is added for automatic allocation.
-                // ATTRIBUTION AUTOMATIQUE
                 $url = new moodle_url('/mod/workshop/allocation.php', array('cmid' => $PAGE->cm->id, 'method' => 'random'));
                 $settingnode->add(get_string('pluginname', 'workshopallocation_random'), $url, settings_navigation::TYPE_SETTING);
             }

@@ -124,7 +124,8 @@ if ($groups) {
                 $tablecontent[$k][] = $member->lastname;
                 $tablecontent[$k][] = $member->firstname;
 
-                list($row, $tablecontent) = display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k);
+                list($row, $tablecontent) = display_workshop_result_for_a_user($row, $workshoplist, $member,
+                        $groupmembers, $tablecontent, $k);
                 $table->data[] = $row;
                 $k++;
             }

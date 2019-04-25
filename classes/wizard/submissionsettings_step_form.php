@@ -78,10 +78,10 @@ class submissionsettings_step_form extends step_form {
 
         $fieldselectors = array("input[name='allowsubmission']", "input[name='submissionend[enabled]']");
         $fieldselectors = implode(',' , $fieldselectors);
-        $inputallowsubmissionselector = "input[name='allowsubmission']";
+        $inputallowsubselector = "input[name='allowsubmission']";
         $submissionendselector = "input[name='submissionend[enabled]']";
         $PAGE->requires->js_call_amd('local_workshopaddons/wizardsubmissionsettings', 'init',
-                array($inputallowsubmissionselector, $submissionendselector));
+                array($inputallowsubselector, $submissionendselector));
 
     }
 

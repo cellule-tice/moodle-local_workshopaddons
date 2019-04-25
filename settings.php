@@ -33,9 +33,8 @@ if ($hassiteconfig) { // Needs this condition or there is error on login page.
 
     $settings->add(new admin_setting_configtext('local_workshopaddons/courselistwithfillinsubmissionslink',
             get_string('display_fillinmissingsubmission_link_for_courses', 'local_workshopaddons'),
-        get_string('display_fillinmissingsubmission_link_for_courses', 'local_workshopaddons'), 'SBIOB199,SAGRM206'));
-    
-    
+        get_string('display_fillinmissingsubmission_link_for_courses', 'local_workshopaddons'), 'COURS1,COURS2,COURS3'));
+
     $name = 'local_workshopaddons/displaywizard';
     $title = get_string('display_wizard', 'local_workshopaddons');
     $settings->add(new admin_setting_configcheckbox($name, $title, '', 0));

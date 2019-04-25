@@ -49,8 +49,8 @@ class assessmentsettings_step extends step {
     public function save_form(\stdclass $data) {
         global $DB;
         $record = $this->workshop->get_record();
-       // Not displayed.
-       //  $record->assesswithoutsubmission = (int)!empty($data->assesswithoutsubmission); ...
+        // Not displayed.
+        //  $record->assesswithoutsubmission = (int)!empty($data->assesswithoutsubmission); ...
        
         // Intructions for reviewers.
         if ($draftitemid = $data->instructreviewerseditor['itemid']) {
@@ -70,7 +70,7 @@ class assessmentsettings_step extends step {
         $record->assessmentend = $data->assessmentend;
         // Check if anonimity is used in standard workshop ?
         // Anonymity settings.
-       /* if (isset($data->displayappraiseesname)) {
+        /* if (isset($data->displayappraiseesname)) {
             $record->displayappraiseesname = $data->displayappraiseesname;
         }
         if (isset($data->displayappraisersname)) {

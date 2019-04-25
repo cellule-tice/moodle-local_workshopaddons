@@ -73,23 +73,19 @@ $groups = groups_get_all_groups($courseid);
 if ($groups) {
     $content .= '<ul>';
     foreach ($groups as $group) {
-        // Le nom du groupe commence par Groupe ? 
-        // Il s'agit d'une contrainte qui avait été mise pour les cours d'Arnaud Vervoort mais qui pose pb pour Jean-Yves Matroule
-        //if (substr_count($group->name, 'Groupe')) {
-            $content .= html_writer::start_tag('li', array('class' => 'memberlist', 'id' => $group->id));
-            $link = '?id='.$courseid.'&groupid='.$group->id;
-            $content .= html_writer::link($link,  $group->name);
-            $groupmembers = groups_get_members($group->id);
-            if (count($groupmembers)) {
-                $content .= html_writer::start_tag('ol', array('class' => 'groupmembers hidden', 'id' => 'groupmembers'.$group->id));
-                foreach ($groupmembers as $member) {
-                    $link2 = $link .'&userid='.$member->id;
-                    $content .= html_writer::tag('li', $member->firstname . ' ' . $member->lastname);
-                }
-                $content .= html_writer::end_tag('ol');
+        $content .= html_writer::start_tag('li', array('class' => 'memberlist', 'id' => $group->id));
+        $link = '?id='.$courseid.'&groupid='.$group->id;
+        $content .= html_writer::link($link,  $group->name);
+        $groupmembers = groups_get_members($group->id);
+        if (count($groupmembers)) {
+            $content .= html_writer::start_tag('ol', array('class' => 'groupmembers hidden', 'id' => 'groupmembers'.$group->id));
+            foreach ($groupmembers as $member) {
+                $link2 = $link .'&userid='.$member->id;
+                $content .= html_writer::tag('li', $member->firstname . ' ' . $member->lastname);
             }
-            $content .= html_writer::end_tag('li');
-       // }
+            $content .= html_writer::end_tag('ol');
+        }
+        $content .= html_writer::end_tag('li');
     }
     $content .= '</ul>';
 }

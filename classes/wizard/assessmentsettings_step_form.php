@@ -46,31 +46,6 @@ class assessmentsettings_step_form extends step_form {
      */
     public function step_definition() {
         $mform = $this->_form;
-      /*  $record = $this->workshop->get_record();
-        if (!$this->workshop->is_self_assessment_type()) {
-            // Check if anonimity is alredady useable in standard workshop ?
-            $anonymitysettings = new \local_workshopaddons\anonymity_settings($this->workshop->context);
-            // Display appraisees name.
-            if (!empty($record->allowsubmission)) {
-                $label = get_string('displayappraiseesname', 'workshop');
-                $mform->addElement('checkbox', 'displayappraiseesname', $label);
-                $mform->addHelpButton('displayappraiseesname', 'displayappraiseesname', 'workshop');
-                $mform->setDefault('displayappraiseesname', $anonymitysettings->display_appraisees_name());
-            }
-            // Display appraisers name.
-            $label = get_string('displayappraisersname', 'local_workshopaddons');
-            $mform->addElement('checkbox', 'displayappraisersname', $label);
-            $mform->addHelpButton('displayappraisersname', 'displayappraisersname', 'local_workshopaddons');
-            $mform->setDefault('displayappraisersname', $anonymitysettings->display_appraisers_name());
-        } 
-        // Do not display assess without submission if allow submission is false.
-         if ($record->allowsubmission != 0 && !$this->workshop->is_self_assessment_type()) {
-            // Assess without submission.
-            $label = get_string('assesswithoutsubmission', 'mod_workshop');
-            $mform->addElement('checkbox', 'assesswithoutsubmission', $label);
-            $mform->addHelpButton('assesswithoutsubmission', 'assesswithoutsubmission', 'workshop');
-        } */
-
 
         // Instructions for reviewers.
         $label = get_string('instructreviewers', 'workshop');

@@ -326,8 +326,8 @@ function download_submissions($workshop) {
             if ($submission) {
                 if ($files  = $fs->get_area_files($workshop->context->id, 'mod_workshop', 'submission_attachment',
                         $submission->id)) {
-                    // La soumission est un fichier.
-                    foreach ($files as $file){
+                    // Submission is a file.
+                    foreach ($files as $file) {
                         if ($file->get_mimetype() && $file->get_filename() != ".") {
                             $prefixedfilename = clean_filename($student->lastname. '_' . $student->firstname .
                                   '_' .$file->get_filename());
