@@ -29,7 +29,6 @@ require_once(dirname(__FILE__).'/locallib.php');
  * This function is usefull to extend course navigation
  */
 function local_workshopaddons_extend_navigation_course(navigation_node $parentnode, stdClass $course , context_course $context  ) {
-    global $CFG;
     if (has_capability('moodle/course:update', $context) && workshop_is_used_in_course()) {
         $params = array('id' => $course->id);
         // In the report tab linked to course navigation, a node is added and entitled workshop.
@@ -50,7 +49,7 @@ function local_workshopaddons_extend_navigation_course(navigation_node $parentno
 /*
  * This function is usefull to extend settings navigation
  */
-function local_workshopaddons_extend_settings_navigation($settingsnav, $context) {
+function local_workshopaddons_extend_settings_navigation($settingsnav) {
     global $PAGE, $COURSE;
 
     // Only add this settings item on non-site course pages.

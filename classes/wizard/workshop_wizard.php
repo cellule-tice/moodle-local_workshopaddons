@@ -46,10 +46,10 @@ class workshop_wizard extends workshop {
     public $allowsubmission;
 
     /** @var bool indicate if assessmnent is allowed as soon work is submitted */
-    public $assessassoonsubmitted;
+    public $assessassoonsub;
 
     /** @var int 1 if user can assess without submission */
-    public $assesswithoutsubmission;
+    public $assesswithoutsub;
 
     /** @var boolean true if allocations already generated */
     public static $allocationsgenerated = false;
@@ -91,36 +91,6 @@ class workshop_wizard extends workshop {
         $field = 'assesswithoutsubmission';
         $this->fieldnames[] = $field;
 
-        /*if ($cm instanceof cm_info) {
-            $this->cm = $cm;
-        } else {
-            $modinfo = get_fast_modinfo($course);
-            $this->cm = $modinfo->get_cm($cm->id);
-        }
-        if (is_null($cm)) {
-            $this->context = context_module::instance($this->cm->id);
-        } else {
-            $this->context = $cm;
-        }*/
-
-       /* if (self::$allocationsgenerated == false && !self::is_assessmenttype_disabled($this->id) &&
-                (!in_array(self::SKIP_ALLOCATION_ACTION, $actions))) {
-            if ($this->assessmenttype == self::PEER_ASSESSMENT) {
-                $this->remove_allocations(true);
-            } else {
-                $this->generate_self_allocations();
-                if ($this->assessmenttype == self::SELF_ASSESSMENT) {
-                    $this->remove_allocations(false);
-                }
-            }
-            self::$allocationsgenerated = true;
-        }
-
-        // Generate fake submissions.
-        if (self::$submissionsgenerated == false) {
-            $this->generate_submissions();
-            self::$submissionsgenerated = true;
-        }*/
     }
     
      /**

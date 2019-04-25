@@ -45,12 +45,11 @@ class summary_step_form extends step_form {
      * The step form definition.
      */
     public function step_definition() {
-        global $DB, $USER;
+        global $USER;
         $mform = $this->_form;
         $record = $this->workshop->get_record();
         // Summary container.
         $mform->addElement('html', \html_writer::start_div('wizard-summary'));
-
         // Assessment type.
         if ($record->assessmenttype == \workshop_wizard::PEER_ASSESSMENT) {
             $assessmenttype = get_string('peerassessment', 'local_workshopaddons');
@@ -61,7 +60,6 @@ class summary_step_form extends step_form {
         }
         $mform->addElement('static', 'summary_assessmenttype', get_string('assessmenttype', 'local_workshopaddons'),
                 $assessmenttype);
-
         // Grading method.
         $strategieslist = \workshop_wizard::available_strategies_list();
         $gradingmethod = $strategieslist[$record->strategy];
@@ -74,27 +72,23 @@ class summary_step_form extends step_form {
                     'summary_allowsubmission', get_string('allowsubmission', 'workshop'), get_string('yes'));
             }
         }
-
         // Submission start.
         if ($record->submissionstart != 0) {
             $strdatestring = get_string('strftimerecentfull', 'langconfig');
             $date = userdate($record->submissionstart, $strdatestring);
             $mform->addElement('static', 'summary_submissionstart', get_string('submissionstart', 'workshop'), $date);
         }
-
         // Submissions deadline.
         if ($record->submissionend != 0) {
             $strdatestring = get_string('strftimerecentfull', 'langconfig');
             $date = userdate($record->submissionend, $strdatestring);
             $mform->addElement('static', 'summary_submissionend', get_string('submissionend', 'workshop'), $date);
         }
-
         // Phase switch assessment.
         if ($record->submissionend != 0 && $record->phaseswitchassessment != 0) {
             $mform->addElement('static',
                 'summary_switchassessment', get_string('submissionendswitch', 'workshop'), get_string('yes'));
         }
-
         if (property_exists('workshop', 'assessassoonsubmitted')) {
             // Allow assessment after submission.
             if ($record->assessassoonsubmitted != 0) {
@@ -102,7 +96,6 @@ class summary_step_form extends step_form {
                     'summary_assessassoonsubmitted', get_string('assessassoonsubmitted', 'workshop'), get_string('yes'));
             }
         }
-
         // Peer allocation.
         $userplan = new \workshop_user_plan($this->workshop, $USER->id);
         $phase = \workshop_wizard::PHASE_SUBMISSION;
@@ -117,19 +110,7 @@ class summary_step_form extends step_form {
         }
 
        // Check if anonimity is already in use in standard workshop ?
-       // Anonymity.
        if (!$this->workshop->is_self_assessment_type()) {
-          /*   $anonymitysettings = new \local_workshopaddons\anonymity_settings($this->workshop->context);
-            // Display appraisees name.
-            if (!empty($record->allowsubmission)) {
-                $yesno = ($anonymitysettings->display_appraisees_name()) ? get_string('yes') : get_string('no');
-                $label = get_string('displayappraiseesname', 'workshop');
-                $mform->addElement('static', 'summary_displayappraiseesname', $label, $yesno);
-            }
-            // Display appraisers name.
-            $yesno = ($anonymitysettings->display_appraisers_name()) ? get_string('yes') : get_string('no');
-            $label = get_string('displayappraisersname', 'workshop');
-            $mform->addElement('static', 'summary_displayappraisersname', $label, $yesno); */
             // Assess without submission.
             if (property_exists('workshop', 'allowsubmission')) {
                 if ($record->allowsubmission) {
@@ -157,5 +138,4 @@ class summary_step_form extends step_form {
         $mform->addElement('html', \html_writer::end_div());
 
     }
-
 }

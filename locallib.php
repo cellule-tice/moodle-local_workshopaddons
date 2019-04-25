@@ -58,7 +58,7 @@ function get_workshop_list() {
  * @return array $list2
  */
 function get_submission_for_user ($userid) {
-    global $DB, $course;
+    global $DB;
     // Get workshop list for course.
     $list = get_workshop_list();
     $list2 = array();
@@ -80,7 +80,7 @@ function get_submission_for_user ($userid) {
  * @return array
  */
 function get_submission_for_user_and_workshop ($userid, $workshopid) {
-     global $DB, $course;
+     global $DB;
     // Get workshop list for course.
     $list = get_workshop_list();
     $list2 = array();
@@ -104,7 +104,7 @@ function get_submission_for_user_and_workshop ($userid, $workshopid) {
  * @return array
  */
 function get_results_for_user_and_workshop ($userid, $groupmembers, $workshopid) {
-    global $DB, $course;
+    global $DB;
     $nbmembers = count($groupmembers);
     $missing = array();
     $submissionlist = get_submission_for_user_and_workshop ($userid, $workshopid);
@@ -142,7 +142,6 @@ function get_results_for_user_and_workshop ($userid, $groupmembers, $workshopid)
                     }
                 }
             }
-            $workshop = get_workshopname($workshopid);
         }
     }
     return $list;
@@ -321,8 +320,6 @@ function download_submissions($workshop) {
             $groupname = '';
             $submission = current($workshop->get_submissions($userid, $groupid));  // Only one submission from user.
 
-            $prefix = str_replace('_', ' ', $groupname . fullname($student));
-
             if ($submission) {
                 if ($files  = $fs->get_area_files($workshop->context->id, 'mod_workshop', 'submission_attachment',
                         $submission->id)) {
@@ -379,34 +376,26 @@ function get_workshop_id() {
 function display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k) {
     foreach ($workshoplist as $workshopid) {
         // Foreach workshop get results for a specific member of this group.
-         $results = get_results_for_user_and_workshop ($member->id, $groupmembers, $workshopid);
+        $results = get_results_for_user_and_workshop ($member->id, $groupmembers, $workshopid);
 
-         $notes = array();
-         $nbval = count($results);
-         $details = array();
-         $trouve = false;
-         foreach ($results as $reviewerid => $elt) {
-             foreach ($elt as $key => $value) {
-                 if (!array_key_exists($key, $notes)) {
-                     $notes[$key] = 0;
-                 }
-                 if ($value != '-') {
-                     $notes[$key] += $value;
-                     $details[$key][] = sprintf("%01.2f", $value);
-                 } else {
-                     $notes[$key] = '-';
-                     $details[$key][] = '';
-                 }
-                 $trouve = true;
-             }
-         }
-        /* if (!$trouve) {
-             $list2 = get_questionlist_for_workshopid ($workshopid);
-             for ($i=1; $i<= count($list2); $i++) {
-                  $notes[$i] = '-';
-                  $details[$i][] = '';
-             }
-         }*/
+        $notes = array();
+        $details = array();
+        $trouve = false;
+        foreach ($results as $elt) {
+            foreach ($elt as $key => $value) {
+                if (!array_key_exists($key, $notes)) {
+                    $notes[$key] = 0;
+                }
+                if ($value != '-') {
+                    $notes[$key] += $value;
+                    $details[$key][] = sprintf("%01.2f", $value);
+                } else {
+                    $notes[$key] = '-';
+                    $details[$key][] = '';
+                }
+                $trouve = true;
+            }
+        }
         foreach ($notes as $key => $value) {
             $l++;
             $detail = '<div id="note'. $l . '" class="display_details"><b>';
