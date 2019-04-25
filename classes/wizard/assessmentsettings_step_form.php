@@ -46,8 +46,8 @@ class assessmentsettings_step_form extends step_form {
      */
     public function step_definition() {
         $mform = $this->_form;
-        $record = $this->workshop->get_record();
-      /*  if (!$this->workshop->is_self_assessment_type()) {
+      /*  $record = $this->workshop->get_record();
+        if (!$this->workshop->is_self_assessment_type()) {
             // Check if anonimity is alredady useable in standard workshop ?
             $anonymitysettings = new \local_workshopaddons\anonymity_settings($this->workshop->context);
             // Display appraisees name.
@@ -126,7 +126,6 @@ class assessmentsettings_step_form extends step_form {
                 }
             }
         }
-
         return $errors;
     }
 

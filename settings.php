@@ -29,7 +29,7 @@ if ($hassiteconfig) { // Needs this condition or there is error on login page.
     get_string('pluginname', 'local_workshopaddons'));
     $ADMIN->add('localplugins', $settings);
 
-    // Liste des cours pour lesquels on ajoute le lien pour remplir les travaux automatiquement.    
+    // Courselist for which link must be displayed.
 
     $settings->add(new admin_setting_configtext('local_workshopaddons/courselistwithfillinsubmissionslink',
             get_string('display_fillinmissingsubmission_link_for_courses', 'local_workshopaddons'),
@@ -39,5 +39,4 @@ if ($hassiteconfig) { // Needs this condition or there is error on login page.
     $name = 'local_workshopaddons/displaywizard';
     $title = get_string('display_wizard', 'local_workshopaddons');
     $settings->add(new admin_setting_configcheckbox($name, $title, '', 0));
-        
 }

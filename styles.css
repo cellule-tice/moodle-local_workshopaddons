@@ -3,20 +3,20 @@
 /**
  * Wizard
  */
-.path-local-workshop.path-local-workshop-wizard .mform .fgroup .proceedbutton {
+.path-local-workshopaddons.path-local-workshopaddons-wizard .mform .fgroup .proceedbutton {
     float: right;
     margin-right: 5%;
 }
 
-.path-local-workshop .wizard-button {
+.path-local-workshopaddons .wizard-button {
     float: right;
 }
 
-.path-local-workshop .wizard-navigation {
+.path-local-workshopaddons .wizard-navigation {
     margin: 25px 0 20px;
 }
 
-.path-local-workshop .wizard-navigation ol {
+.path-local-workshopaddons .wizard-navigation ol {
     position: relative;
     overflow: hidden;
     counter-reset: wizard;
@@ -25,9 +25,9 @@
     margin: 0;
 }
 
-.path-local-workshop .wizard-navigation ol:before,
-.path-local-workshop .wizard-navigation ol:after,
-.path-local-workshop .wizard-navigation li + li:after {
+.path-local-workshopaddons .wizard-navigation ol:before,
+.path-local-workshopaddons .wizard-navigation ol:after,
+.path-local-workshopaddons .wizard-navigation li + li:after {
     content: "";
     display: block;
     width: 50%;
@@ -39,22 +39,22 @@
     transform: translateY(1px);
 }
 
-path-local-workshop .wizard-navigation ol:before {
-    left:0;
+path-local-workshopaddons .wizard-navigation ol:before {
+    left: 0;
 }
-.path-local-workshop .wizard-navigation ol:after {
+.path-local-workshopaddons .wizard-navigation ol:after {
     background-color: #ddd;
     right: 0;
 }
 
-.path-local-workshop .wizard-navigation li + li:after {
+.path-local-workshopaddons .wizard-navigation li + li:after {
     width: 100%;
     background-color: #3498db;
     left: -50%;
     z-index: 0;
 }
 
-.path-local-workshop .wizard-navigation li {
+.path-local-workshopaddons .wizard-navigation li {
     position: relative;
     list-style-type: none;
     flex-basis: 100%;
@@ -62,19 +62,19 @@ path-local-workshop .wizard-navigation ol:before {
     color: #3498db;
 }
 
-.path-local-workshop .wizard-navigation li a {
-    color : #333;
+.path-local-workshopaddons .wizard-navigation li a {
+    color: #333;
 }
-.path-local-workshop .wizard-navigation li a:hover,
-.path-local-workshop .wizard-navigation li a:focus {
-    text-decoration : none;
+.path-local-workshopaddons .wizard-navigation li a:hover,
+.path-local-workshopaddons .wizard-navigation li a:focus {
+    text-decoration: none;
 }
 
-.path-local-workshop .wizard-navigation .current ~ li {
+.path-local-workshopaddons .wizard-navigation .current ~ li {
     color: #3498db;
 }
 
-.path-local-workshop .wizard-navigation li .container:before {
+.path-local-workshopaddons .wizard-navigation li .container:before {
     counter-increment: wizard;
     content: counter(wizard);
     display: inline-block;
@@ -91,34 +91,34 @@ path-local-workshop .wizard-navigation ol:before {
     margin-bottom: 0.2em;
     z-index: 1;
 }
-.path-local-workshop .wizard-navigation .current ~ li .container:before {
+.path-local-workshopaddons .wizard-navigation .current ~ li .container:before {
     background-color: #fff;
     color: #333;
     border-color: #ddd;
 }
 
-.path-local-workshop .wizard-navigation .current ~ li:after {
+.path-local-workshopaddons .wizard-navigation .current ~ li:after {
     background-color: #ddd;
 }
-.path-local-workshop .wizard-navigation li .container .legend {
+.path-local-workshopaddons .wizard-navigation li .container .legend {
     display: block;
 }
 @media screen and (min-width: 900px) {
-    .path-local-workshop .userplan dd.active {
+    .path-local-workshopaddons .userplan dd.active {
         display: flex;
         flex: 1 1 0;
         flex-wrap: wrap;
     }
-    .path-local-workshop .userplan .phasetasks .switchtonextphase,
-    .path-local-workshop .userplan .phasetasks .switchtonextphase .btn {
+    .path-local-workshopaddons .userplan .phasetasks .switchtonextphase,
+    .path-local-workshopaddons .userplan .phasetasks .switchtonextphase .btn {
         width: 100%;
         box-sizing: border-box;
     }
-    .path-local-workshop .userplan .phasetasks .switchtonextphase {
+    .path-local-workshopaddons .userplan .phasetasks .switchtonextphase {
         align-self: flex-end;
         margin: 10px auto 0;
     }
-    .path-local-workshop .userplan .phasetasks .switchtonextphase:first-child {
+    .path-local-workshopaddons .userplan .phasetasks .switchtonextphase:first-child {
         align-self: center;
         margin-top: 0;
         width: auto;
@@ -126,29 +126,29 @@ path-local-workshop .wizard-navigation ol:before {
 }
 
 @media only screen and (max-width: 768px) {
-    .path-local-workshop .userplan {
+    .path-local-workshopaddons .userplan {
         border-right: none;
         border-top: none;
     }
 
-    .path-local-workshop .userplan dl,
-    .path-local-workshop .userplan.nbphases4 dl {
+    .path-local-workshopaddons .userplan dl,
+    .path-local-workshopaddons .userplan.nbphases4 dl {
         width: 100%;
         border-right: none;
     }
 
-    .path-local-workshop .userplan dt {
+    .path-local-workshopaddons .userplan dt {
         float: left;
         width: 30%;
         border-bottom: none;
         border-top: 1px solid #ddd;
         box-sizing: border-box;
     }
-    .path-local-workshop .userplan dt.active {
+    .path-local-workshopaddons .userplan dt.active {
         border: none;
     }
 
-    .path-local-workshop .userplan dd {
+    .path-local-workshopaddons .userplan dd {
         float: left;
         width: 70%;
         box-sizing: border-box;
@@ -156,17 +156,17 @@ path-local-workshop .wizard-navigation ol:before {
         border-top: 1px solid #ddd;
     }
 
-    .path-local-workshop .wizard-navigation li .container .legend {
+    .path-local-workshopaddons .wizard-navigation li .container .legend {
         display: none;
     }
 }
 
 @media only screen and (max-width: 420px) {
-    .path-local-workshop .userplan {
+    .path-local-workshopaddons .userplan {
         border-bottom: none;
     }
 
-    .path-local-workshop .userplan dt {
+    .path-local-workshopaddons .userplan dt {
         float: left;
         width: 70%;
         border-bottom: none;
@@ -176,7 +176,7 @@ path-local-workshop .wizard-navigation ol:before {
         padding: 5px;
     }
 
-    .path-local-workshop .userplan dd {
+    .path-local-workshopaddons .userplan dd {
         float: left;
         width: 70%;
         border-left: 1px solid #ddd;
@@ -184,11 +184,11 @@ path-local-workshop .wizard-navigation ol:before {
         border-bottom: 1px solid #ddd;
     }
 
-    .path-local-workshop .wizard-button {
+    .path-local-workshopaddons .wizard-button {
         float: none;
     }
 
-    .path-local-workshop .wizard-navigation li .container:before {
+    .path-local-workshopaddons .wizard-navigation li .container:before {
         font-size: 1.5em;
         width: 1.5em;
         height: 1.5em;
@@ -196,14 +196,14 @@ path-local-workshop .wizard-navigation ol:before {
         border-radius: 1.5em;
     }
 
-    .path-local-workshop .wizard-navigation ol:before,
-    .path-local-workshop .wizard-navigation ol:after,
-    .path-local-workshop .wizard-navigation li + li:after {
+    .path-local-workshopaddons .wizard-navigation ol:before,
+    .path-local-workshopaddons .wizard-navigation ol:after,
+    .path-local-workshopaddons .wizard-navigation li + li:after {
         top: 1.15em;
     }
 }
 
-.path-local-workshop .userplan dd {
+.path-local-workshopaddons .userplan dd {
     vertical-align: top;
     border-right: 1px solid #ddd;
     background-color: #f5f5f5;
@@ -212,39 +212,39 @@ path-local-workshop .wizard-navigation ol:before {
     padding: 5px;
 }
 
-.path-local-workshop .userplan dd,
-.path-local-workshop .userplan dd a,
-.path-local-workshop .userplan dd a:link,
-.path-local-workshop .userplan dd a:hover,
-.path-local-workshop .userplan dd a:visited,
-.path-local-workshop .userplan dd a:active {
+.path-local-workshopaddons .userplan dd,
+.path-local-workshopaddons .userplan dd a,
+.path-local-workshopaddons .userplan dd a:link,
+.path-local-workshopaddons .userplan dd a:hover,
+.path-local-workshopaddons .userplan dd a:visited,
+.path-local-workshopaddons .userplan dd a:active {
     color: #999;
 }
 
-.path-local-workshop .userplan dd.active,
-.path-local-workshop .userplan dd.active a,
-.path-local-workshop .userplan dd.active a:link,
-.path-local-workshop .userplan dd.active a:hover,
-.path-local-workshop .userplan dd.active a:visited,
-.path-local-workshop .userplan dd.active a:active {
+.path-local-workshopaddons .userplan dd.active,
+.path-local-workshopaddons .userplan dd.active a,
+.path-local-workshopaddons .userplan dd.active a:link,
+.path-local-workshopaddons .userplan dd.active a:hover,
+.path-local-workshopaddons .userplan dd.active a:visited,
+.path-local-workshopaddons .userplan dd.active a:active {
     color: black;
 }
 
-.path-local-workshop .userplan dd.lastcol {
+.path-local-workshopaddons .userplan dd.lastcol {
     border-right: 0;
 }
 
-.path-local-workshop .userplan dd.active {
+.path-local-workshopaddons .userplan dd.active {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     background-color: #e7f1c3;
 }
 
-.path-local-workshop .userplan dt .actions {
+.path-local-workshopaddons .userplan dt .actions {
     font-size: smaller;
 }
 
-.path-local-workshop .userplan dd.phasetasks li {
+.path-local-workshopaddons .userplan dd.phasetasks li {
     background-image: url([[pix:local_workshopaddons|userplan/task-todo]]);
     background-position: top left;
     background-repeat: no-repeat;
@@ -253,130 +253,130 @@ path-local-workshop .wizard-navigation ol:before {
     margin: .3em 0;
 }
 
-.dir-rtl.path-local-workshop .userplan dd.phasetasks li {
+.dir-rtl.path-local-workshopaddons .userplan dd.phasetasks li {
     background-position: top right;
 }
 
-.path-local-workshop .userplan dd.phasetasks li.completed {
+.path-local-workshopaddons .userplan dd.phasetasks li.completed {
     background-image: url([[pix:local_workshopaddons|userplan/task-done]]);
 }
 
-.path-local-workshop .userplan dd.phasetasks li.fail {
+.path-local-workshopaddons .userplan dd.phasetasks li.fail {
     background-image: url([[pix:local_workshopaddons|userplan/task-fail]]);
 }
 
-.path-local-workshop .userplan dd.phasetasks li.info {
+.path-local-workshopaddons .userplan dd.phasetasks li.info {
     background-image: url([[pix:local_workshopaddons|userplan/task-info]]);
 }
 
-.path-local-workshop .userplan dd.phasetasks .tasks {
+.path-local-workshopaddons .userplan dd.phasetasks .tasks {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.path-local-workshop .userplan dd.phasetasks .title {
+.path-local-workshopaddons .userplan dd.phasetasks .title {
     padding: 0 10px 0 20px;
 }
 
-.dir-rtl.path-local-workshop .userplan dd.phasetasks .title {
+.dir-rtl.path-local-workshopaddons .userplan dd.phasetasks .title {
     padding: 0 20px 0 10px;
 }
 
-.path-local-workshop .userplan dd.phasetasks .details {
+.path-local-workshopaddons .userplan dd.phasetasks .details {
     padding: 0 10px 0 25px;
     font-size: 80%;
 }
 
-.dir-rtl.path-local-workshop .userplan dd.phasetasks .details {
+.dir-rtl.path-local-workshopaddons .userplan dd.phasetasks .details {
     padding: 0 25px 0 10px;
 }
 
 /**
  * Assessment - full display
  */
-.path-local-workshop .assessment-full {
+.path-local-workshopaddons .assessment-full {
     border: 1px solid #ddd;
     margin: 0 auto 1em auto;
 }
 
-.path-local-workshop .assessment-full .header {
+.path-local-workshopaddons .assessment-full .header {
     position: relative;
     background-color: #ddd;
     padding: 3px;
     min-height: 35px;
 }
 
-.path-local-workshop .assessment-full .header .title {
+.path-local-workshopaddons .assessment-full .header .title {
     font-weight: bold;
 }
 
-.path-local-workshop .assessment-full .header .title,
-.path-local-workshop .assessment-full .header .reviewer,
-.path-local-workshop .assessment-full .header .grade,
-.path-local-workshop .assessment-full .header .weight {
+.path-local-workshopaddons .assessment-full .header .title,
+.path-local-workshopaddons .assessment-full .header .reviewer,
+.path-local-workshopaddons .assessment-full .header .grade,
+.path-local-workshopaddons .assessment-full .header .weight {
     margin: 0 0 0 40px;
 }
 
-.path-local-workshop .assessment-full.anonymous .header .title,
-.path-local-workshop .assessment-full.anonymous .header .reviewer,
-.path-local-workshop .assessment-full.anonymous .header .grade,
-.path-local-workshop .assessment-full.anonymous .header .weight {
+.path-local-workshopaddons .assessment-full.anonymous .header .title,
+.path-local-workshopaddons .assessment-full.anonymous .header .reviewer,
+.path-local-workshopaddons .assessment-full.anonymous .header .grade,
+.path-local-workshopaddons .assessment-full.anonymous .header .weight {
     margin: 0 0 0 5px;
 }
 
-.path-local-workshop .assessment-full .header .reviewer .picture {
+.path-local-workshopaddons .assessment-full .header .reviewer .picture {
     position: absolute;
     top: 3px;
     left: 3px;
 }
-.dir-rtl.path-local-workshop .assessment-full .header .reviewer .picture {
+.dir-rtl.path-local-workshopaddons .assessment-full .header .reviewer .picture {
     right: 3px;
     left: auto;
 }
 
-.path-local-workshop .assessment-full .header .actions {
+.path-local-workshopaddons .assessment-full .header .actions {
     position: absolute;
     top: 5px;
     right: 5px;
     text-align: right;
 }
 
-.path-local-workshop .assessment-full .header .actions .singlebutton,
-.path-local-workshop .assessment-full .header .actions .singlebutton form,
-.path-local-workshop .assessment-full .header .actions .singlebutton form div {
+.path-local-workshopaddons .assessment-full .header .actions .singlebutton,
+.path-local-workshopaddons .assessment-full .header .actions .singlebutton form,
+.path-local-workshopaddons .assessment-full .header .actions .singlebutton form div {
     display: inline;
 }
 
-.path-local-workshop .assessment-full .assessment-form-wrapper,
-.path-local-workshop .assessment-full .overall-feedback-wrapper {
+.path-local-workshopaddons .assessment-full .assessment-form-wrapper,
+.path-local-workshopaddons .assessment-full .overall-feedback-wrapper {
     margin-top: 0.5em;
     padding: 0 1em;
 }
 
-.path-local-workshop .assessment-summary.graded .singlebutton input[type="submit"],
-.path-local-workshop .example-summary.graded .singlebutton input[type="submit"] {
+.path-local-workshopaddons .assessment-summary.graded .singlebutton input[type="submit"],
+.path-local-workshopaddons .example-summary.graded .singlebutton input[type="submit"] {
     background-color: #e7f1c3;
 }
 
-.path-local-workshop .assessment-summary.notgraded .singlebutton input[type="submit"],
-.path-local-workshop .example-summary.notgraded .singlebutton input[type="submit"] {
+.path-local-workshopaddons .assessment-summary.notgraded .singlebutton input[type="submit"],
+.path-local-workshopaddons .example-summary.notgraded .singlebutton input[type="submit"] {
     background-color: #ffd3d9;
 }
 
 /**
  * Overall feedback
  */
-.path-local-workshop .assessment-full .overallfeedback .content,
-.path-local-workshop .assessment-full .overallfeedback .attachments {
+.path-local-workshopaddons .assessment-full .overallfeedback .content,
+.path-local-workshopaddons .assessment-full .overallfeedback .attachments {
     padding: 5px 10px;
 }
 
-.path-local-workshop .assessment-full .overallfeedback .attachments .files img.icon {
+.path-local-workshopaddons .assessment-full .overallfeedback .attachments .files img.icon {
     margin-right: 5px;
 }
 
-.path-local-workshop .assessment-full .overallfeedback .attachments .images div {
+.path-local-workshopaddons .assessment-full .overallfeedback .attachments .images div {
     display: inline-block;
     margin: 5px;
     padding: 5px;
@@ -386,81 +386,81 @@ path-local-workshop .wizard-navigation ol:before {
 /**
  * Assessment form
  */
-.path-local-workshop .assessmentform .description {
+.path-local-workshopaddons .assessmentform .description {
     margin: 0 1em;
 }
 
 /**
  * Grading report
  */
-.path-local-workshop .grading-report {
+.path-local-workshopaddons .grading-report {
     width: 100%;
     margin: 1em auto 1em auto;
     font-size: 80%;
     border: 1px solid #ddd;
 }
 
-.path-local-workshop .grading-report .userpicture {
+.path-local-workshopaddons .grading-report .userpicture {
     margin: 0 3px;
     vertical-align: middle;
 }
 
-.path-local-workshop .grading-report del {
+.path-local-workshopaddons .grading-report del {
     color: red;
     font-size: 90%;
     text-decoration: line-through;
 }
 
-.path-local-workshop .grading-report ins {
+.path-local-workshopaddons .grading-report ins {
     color: green;
     font-weight: bold;
     text-decoration: underline;
 }
 
-.path-local-workshop .grading-report th {
+.path-local-workshopaddons .grading-report th {
     white-space: normal;
 }
 
-.path-local-workshop .grading-report td {
+.path-local-workshopaddons .grading-report td {
     vertical-align: top;
     border: 1px solid #ddd;
 }
 
-.path-local-workshop .grading-report tr.published td.submission {
+.path-local-workshopaddons .grading-report tr.published td.submission {
     background-color: #d2ebff;
 }
 
-.path-local-workshop .grading-report tr.published td.submission a {
+.path-local-workshopaddons .grading-report tr.published td.submission a {
     font-weight: bold;
 }
 
-.path-local-workshop .grading-report .assessmentdetails {
+.path-local-workshopaddons .grading-report .assessmentdetails {
     white-space: nowrap;
 }
 
-.path-local-workshop .grading-report .receivedgrade span.grade,
-.path-local-workshop .grading-report .givengrade span.gradinggrade {
+.path-local-workshopaddons .grading-report .receivedgrade span.grade,
+.path-local-workshopaddons .grading-report .givengrade span.gradinggrade {
     font-weight: bold;
 }
 
-.path-local-workshop .grading-report .submissiongrade.cell,
-.path-local-workshop .grading-report .gradinggrade.cell {
+.path-local-workshopaddons .grading-report .submissiongrade.cell,
+.path-local-workshopaddons .grading-report .gradinggrade.cell {
     text-align: center;
     font-size: 200%;
     white-space: nowrap;
 }
 
-.path-local-workshop .grading-report .givengrade.null .user,
-.path-local-workshop .grading-report .receivedgrade.null .user {
+.path-local-workshopaddons .grading-report .givengrade.null .user,
+.path-local-workshopaddons .grading-report .receivedgrade.null .user {
     color: #e00;
 }
 
-.path-local-workshop .grading-report-view-switcher {
+.path-local-workshopaddons .grading-report-view-switcher {
     float: right;
     margin-bottom: 10px;
 }
 
-.path-local-workshop .grading-report-view-switcher span {
+.path-local-workshopaddons .grading-report-view-switcher span {
     display: inline-block;
     margin-left: 20px;
 }
@@ -468,11 +468,11 @@ path-local-workshop .wizard-navigation ol:before {
 /**
  * Final grades
  */
-.path-local-workshop #workshop-viewlet-yourgrades .finalgrades {
+.path-local-workshopaddons #workshop-viewlet-yourgrades .finalgrades {
     text-align: center;
 }
 
-.path-local-workshop #workshop-viewlet-yourgrades .finalgrades .grade {
+.path-local-workshopaddons #workshop-viewlet-yourgrades .finalgrades .grade {
     border: 1px solid #ddd;
     margin: 1em;
     padding: 2em;
@@ -482,94 +482,94 @@ path-local-workshop .wizard-navigation ol:before {
     border-radius: 15px;
 }
 
-.path-local-workshop #workshop-viewlet-yourgrades .finalgrades .grade.submissiongrade {
+.path-local-workshopaddons #workshop-viewlet-yourgrades .finalgrades .grade.submissiongrade {
     background-color: #d2ebff;
 }
 
-.path-local-workshop #workshop-viewlet-yourgrades .finalgrades .grade.assessmentgrade {
+.path-local-workshopaddons #workshop-viewlet-yourgrades .finalgrades .grade.assessmentgrade {
     background-color: #eee;
     /*background-color: #e7f1c3;*/
 }
 
-.path-local-workshop #workshop-viewlet-yourgrades .finalgrades .grade .gradevalue {
+.path-local-workshopaddons #workshop-viewlet-yourgrades .finalgrades .grade .gradevalue {
     font-weight: bold;
     font-size: x-large;
     margin: 10px;
 }
 
 
-.path-local-workshop .mform .wizard-summary .fitem {
+.path-local-workshopaddons .mform .wizard-summary .fitem {
     margin-bottom: 0;
 }
 
-.path-local-workshop div.assessbutton div.singlebutton {
+.path-local-workshopaddons div.assessbutton div.singlebutton {
     text-align: left;
 }
 
-.path-local-workshop div.assessbutton div.singlebutton div {
+.path-local-workshopaddons div.assessbutton div.singlebutton div {
     margin-left: 0;
     display: block;
 }
-.path-local-workshop div.assessbutton div.singlebutton input[type="submit"] {
+.path-local-workshopaddons div.assessbutton div.singlebutton input[type="submit"] {
     margin-left: 2px;
 }
-.path-local-workshop .userplan .phasetasks .switchtonextphase {
+.path-local-workshopaddons .userplan .phasetasks .switchtonextphase {
     padding: 0 20px;
 }
-.path-local-workshop .userplan .phasetasks .switchtonextphase .btn {
+.path-local-workshopaddons .userplan .phasetasks .switchtonextphase .btn {
     color: #fff;
     font-size: 100%;
     padding-left: 8%;
     padding-right: 8%;
 }
-.path-local-workshop .allocations .form-autocomplete-selection {
+.path-local-workshopaddons .allocations .form-autocomplete-selection {
     display: none;
 }
-.path-local-workshop .allocations [role="listitem"] {
+.path-local-workshopaddons .allocations [role="listitem"] {
     margin-bottom: 5px;
 }
-.path-local-workshop .allocations [role="listitem"] .delete-user-allocation a {
+.path-local-workshopaddons .allocations [role="listitem"] .delete-user-allocation a {
     color: #fff;
     padding-right: 0.5em;
     vertical-align: middle;
     text-decoration: none;
 }
-.path-local-workshop .allocations [role="listitem"].selfassessment {
+.path-local-workshopaddons .allocations [role="listitem"].selfassessment {
     background-color: #fff;
     border: 1px solid #3a87ad;
     color: #3a87ad;
     text-shadow: none;
 }
-.path-local-workshop .allocations [role="listitem"] img {
+.path-local-workshopaddons .allocations [role="listitem"] img {
     padding-right: 0.5em;
 }
-.path-local-workshop .header-allocation {
+.path-local-workshopaddons .header-allocation {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.path-local-workshop .header-allocation .allocation-view-switcher > label {
+.path-local-workshopaddons .header-allocation .allocation-view-switcher > label {
     font-weight: bold;
 }
-.path-local-workshop .header-allocation .allocation-view-switcher > span {
+.path-local-workshopaddons .header-allocation .allocation-view-switcher > span {
     display: block;
 }
-.path-local-workshop .allocator-plugins-container {
-    display:none;
+.path-local-workshopaddons .allocator-plugins-container {
+    display: none;
 }
 
-.path-local-workshop .completedstatus.completed {
+.path-local-workshopaddons .completedstatus.completed {
     background-image: url([[pix:local_workshopaddons|userplan/task-done]]);
 }
 
-.path-local-workshop .completedstatus.fail {
+.path-local-workshopaddons .completedstatus.fail {
     background-image: url([[pix:local_workshopaddons|userplan/task-fail]]);
 }
 
-.path-local-workshop .completedstatus.info {
+.path-local-workshopaddons .completedstatus.info {
     background-image: url([[pix:local_workshopaddons|userplan/task-info]]);
 }
-.path-local-workshop .otherphases li {
+.path-local-workshopaddons .otherphases li {
     background-image: url([[pix:local_workshopaddons|userplan/task-todo]]);
     background-position: top left;
     background-repeat: no-repeat;

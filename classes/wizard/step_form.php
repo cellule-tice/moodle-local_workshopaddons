@@ -80,7 +80,7 @@ abstract class step_form extends \moodleform {
      * @param bool $cancel whether to show cancel button, default true
      * @param string $submitlabel label for submit button, defaults to get_string('savechanges')
      */
-    public function add_action_buttons($cancel = true, $submitlabel = null) {
+    public function add_action_buttons($cancel = true) {
 
         $mform = $this->_form;
         $buttonarray = array();

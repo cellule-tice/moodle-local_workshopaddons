@@ -60,7 +60,7 @@ class wizard_navigation_page implements renderable, templatable {
      * @param renderer_base $output The renderer base output
      * @return array $data The data used in template
      */
-    public function export_for_template(renderer_base $output) {
+    public function export_for_template() {
 
         $data = new \stdClass();
         $name = \local_workshopaddons\wizard\assessmenttype_step::NAME;

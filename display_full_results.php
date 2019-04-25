@@ -59,7 +59,6 @@ $PAGE->set_title($course->fullname);
 $PAGE->set_url(new moodle_url('/local/workshopaddons/display_full_results.php', $pageparams));
 $PAGE->set_pagelayout('course');
 
-
 $PAGE->requires->js_call_amd('local_workshopaddons/workshop', 'display_results');
 
 
@@ -125,7 +124,7 @@ if ($groups) {
                 $tablecontent[$k][] = $member->lastname;
                 $tablecontent[$k][] = $member->firstname;
 
-                $list($row, $tablecontent) = display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k);
+                list($row, $tablecontent) = display_workshop_result_for_a_user($row, $workshoplist, $member, $groupmembers, $tablecontent, $k);
                 $table->data[] = $row;
                 $k++;
             }
